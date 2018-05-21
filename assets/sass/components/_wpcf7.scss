@@ -1,0 +1,21 @@
+.wpcf7-not-valid {
+  border-color: #d94848;
+}
+
+span.wpcf7-not-valid-tip {
+  margin-top: 0.5rem;
+  font-size: 1.3rem;
+  color: #d94848;
+}
+
+div.wpcf7-validation-errors {
+  @extend .alert, .alert-danger;
+}
+
+div.wpcf7-mail-sent-ok {
+  @extend .alert, .alert-success;
+}
+
+div.wpcf7-response-output {
+  margin: 2rem 0 0;
+}

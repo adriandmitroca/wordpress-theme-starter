@@ -1,0 +1,24 @@
+image: edbizarro/bitbucket-pipelines-php7
+
+pipelines:
+  branches:
+    staging:
+      - step:
+          caches:
+            - node
+          script:
+            - apt-get update && apt-get install rsync -y
+            - yarn install
+            - yarn lint
+            - yarn prod
+            - yarn rsync:staging
+    master:
+      - step:
+          caches:
+            - node
+          script:
+            - apt-get update && apt-get install rsync -y
+            - yarn install
+            - yarn lint
+            - yarn prod
+            - yarn rsync:production

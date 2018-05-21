@@ -1,0 +1,81 @@
+{
+    "key": "group_5985880e1f411",
+    "title": "Scripts",
+    "fields": [
+        {
+            "key": "field_598588244804b",
+            "label": "Scripts in head",
+            "name": "scripts_head",
+            "type": "textarea",
+            "instructions": "All scripts that should be placed in &lt;head&gt; section of the page. Google Analytics, Facebook Pixel, Google Tag Manager and so on.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_5ad60c551d6c4",
+            "label": "Scripts at the top of the page",
+            "name": "scripts_top",
+            "type": "textarea",
+            "instructions": "All scripts that should be placed just after &lt;body&gt; tag like GTM noscript snippet.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_5985885d4804c",
+            "label": "Scripts at the end of page",
+            "name": "scripts_bottom",
+            "type": "textarea",
+            "instructions": "Scripts that should be placed at the end of the page before &lt;\/body&gt; tag. Live Chats, CRM integrations and so on.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": "",
+            "new_lines": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "acf-options-scripts"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1523977367
+}

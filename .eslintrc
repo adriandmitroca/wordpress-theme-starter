@@ -1,0 +1,15 @@
+{
+  "extends": "airbnb-base",
+  "plugins": [
+    "import"
+  ],
+  "env": {
+    "browser": true,
+    "jquery": true,
+    "es6": true
+  },
+  "rules": {
+    "func-names": ["error", "as-needed"],
+    "radix": 0
+  }
+}

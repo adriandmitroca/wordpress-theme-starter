@@ -1,0 +1,26 @@
+{
+    "name": "adriandmitroca/wordpress-theme-boilerplate",
+    "authors": [
+        {
+            "name": "Adrian Dmitroca",
+            "email": "dmitroca.adrian@gmail.com"
+        }
+    ],
+    "license": "MIT",
+    "type": "wordpress-theme",
+    "require": {
+        "php": ">=7.0"
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "3.*",
+        "wp-coding-standards/wpcs": "0.14.*"
+    },
+    "scripts": {
+        "lint": [
+            "phpcbf --standard=.phpcs.xml ./ && phpcs --standard=.phpcs.xml ./"
+        ],
+        "test": [
+            "composer lint"
+        ]
+    }
+}

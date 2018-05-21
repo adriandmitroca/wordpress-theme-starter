@@ -1,0 +1,25 @@
+.alert {
+  padding: 2rem;
+  margin-bottom: 3rem;
+
+  a {
+    color: currentColor;
+    border-bottom: 1px solid currentColor;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+.alert-danger {
+  background: #fff8f8;
+  border-color: #ea9c9c;
+  color: #d75e5e;
+}
+
+.alert-success {
+  background: #fafff3;
+  color: #31891d;
+  border: 1px solid #31891d;
+}

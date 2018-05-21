@@ -1,0 +1,16 @@
+# Temporary files
+*~
+.DS_Store
+Thumbs.db
+.idea
+
+# Project folders
+node_modules/
+dist/
+vendor/
+!src/vendor
+mix-manifest.json
+
+# Log files
+*.log
+
