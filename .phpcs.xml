@@ -17,7 +17,9 @@
     </rule>
 
     <!-- Extend WordPress Coding Standard ruleset. -->
-    <rule ref="WordPress-Extra"/>
+    <rule ref="WordPress-Extra">
+        <exclude name="WordPress.XSS.EscapeOutput"/>
+    </rule>
 
     <!-- Check for usage of deprecated functions. -->
     <rule ref="WordPress.WP.DeprecatedFunctions">

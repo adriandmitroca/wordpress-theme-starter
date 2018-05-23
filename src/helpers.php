@@ -1,7 +1,13 @@
 <?php
 
 function get_svg( $name ) {
-	return file_get_contents( get_template_directory() . '/static/vectors/' . $name . '.svg' );
+	ob_start();
+	include get_template_directory() . '/static/vectors/' . $name . '.svg';
+	return ob_get_clean();
+}
+
+function get_svg_url( $name ) {
+	return get_template_directory_uri() . '/static/vectors/' . $name . '.svg';
 }
 
 function the_svg( $name, $class = '' ) {
@@ -22,8 +28,9 @@ function safe_email( $email ) {
 	$key         = str_shuffle( $character_set );
 	$cipher_text = '';
 	$id          = 'e' . rand( 1, 999999999 );
+	$length      = strlen( $email );
 
-	for ( $i = 0; $i < strlen( $email ); $i += 1 ) {
+	for ( $i = 0; $i < $length; $i ++ ) {
 		$cipher_text .= $key[ strpos( $character_set, $email[ $i ] ) ];
 	}
 
