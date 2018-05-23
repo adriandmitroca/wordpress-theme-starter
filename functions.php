@@ -17,6 +17,6 @@ require_once 'src/plugins.php';
 require_once 'src/supports.php';
 require_once 'src/post-types.php';
 require_once 'src/option-pages.php';
+require_once 'src/filters.php';
 require_once 'src/assets.php';
 require_once 'src/navs.php';
-
