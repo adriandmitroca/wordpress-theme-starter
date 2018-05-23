@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
   <div class="container">
 	<a class="navbar-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>">
-		<?php bloginfo( 'name' ); ?>
+		<?php has_custom_logo() ? the_custom_logo() : bloginfo( 'name' ); ?>
 	</a>
 
 		<?php if ( has_nav_menu( 'top' ) ) : ?>
