@@ -17,7 +17,7 @@
     },
     "scripts": {
         "lint": [
-            "phpcbf --standard=.phpcs.xml ./ && phpcs --standard=.phpcs.xml ./"
+            "phpcs --standard=.phpcs.xml ./ && phpcbf --standard=.phpcs.xml ./"
         ],
         "test": [
             "composer lint"

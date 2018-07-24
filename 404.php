@@ -8,7 +8,7 @@
 
 <div class="error-404 text-center my-5">
   <div class="container">
-	<h1 class="code font-weight-bold"><?php _e( '404', 'boilerplate' ); ?></h1>
-	<h2 class="text"><?php _e( 'Page not found.', 'boilerplate' ); ?></h2>
+    <h1 class="code font-weight-bold">404</h1>
+    <h2 class="text">Page not found</h2>
   </div>
 </div>
