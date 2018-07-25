@@ -3,23 +3,40 @@
     @extend .table, .table-bordered;
   }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  p,
-  ul,
-  ol {
-    &:not(:last-child) {
-      margin-bottom: 2.5rem;
+  & > *:not(:last-child) {
+    margin-bottom: 2.5rem;
+  }
+
+  a {
+    border-bottom: 0.1rem solid currentColor;
+
+    &:hover {
+      text-decoration: none;
     }
   }
 
-  strong,
-  b {
-    font-weight: 700;
+  h1 {
+    font-size: 3.6rem;
+  }
+
+  h2 {
+    font-size: 3.2rem;
+  }
+
+  h3 {
+    font-size: 2.5rem;
+  }
+
+  h4 {
+    font-size: 2.3rem;
+  }
+
+  h5 {
+    font-size: 2rem;
+  }
+
+  h6 {
+    font-size: 1.8rem;
   }
 
   img {
@@ -29,12 +46,12 @@
 
   img.alignright {
     float: right;
-    margin: 0 0 1rem 1rem;
+    margin: 0 0 2.5rem 1rem;
   }
 
   img.alignleft {
     float: left;
-    margin: 0 1rem 1rem 0;
+    margin: 0 1rem 2.5rem 0;
   }
 
   img.aligncenter {
