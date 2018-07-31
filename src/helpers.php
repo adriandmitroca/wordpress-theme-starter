@@ -20,6 +20,10 @@ function the_svg($name, $class = '')
 
 function get_image($image)
 {
+    if (ends_with($image, '.svg')) {
+        return get_template_directory_uri() . '/static/vectors/' . $image;
+    }
+
     return get_template_directory_uri() . '/static/images/' . $image;
 }
 
@@ -197,4 +201,11 @@ function modular_template()
             }
         }
     }
+}
+
+function ends_with($haystack, $needle)
+{
+    $length = strlen($needle);
+
+    return $length === 0 || (substr($haystack, -$length) === $needle);
 }
