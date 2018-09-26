@@ -10,7 +10,7 @@
 
 add_action('after_setup_theme', function () {
     // Loads theme's textdomain language files.
-    load_theme_textdomain('boilerplate', get_template_directory() . '/assets/languages');
+    load_theme_textdomain('boilerplate', get_template_directory() . '/languages');
 
     /**
      * Add support for custom logo. Allow for setting

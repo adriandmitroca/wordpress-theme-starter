@@ -2,8 +2,8 @@ const mix = require('laravel-mix');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const webpack = require('webpack');
 
-mix.js('assets/js/app.js', 'dist/js')
-  .sass('assets/sass/app.scss', 'dist/css')
+mix.js('js/app.js', 'dist/js')
+  .sass('sass/app.scss', 'dist/css')
   .sourceMaps()
   .options({ processCssUrls: false })
   .browserSync({
