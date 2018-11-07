@@ -8,7 +8,7 @@ mix.js('js/app.js', 'dist/js')
   .options({ processCssUrls: false })
   .browserSync({
     proxy: 'wp-boilerplate.test',
-    files: ['dist/**/*', 'acf-modules/*.php'],
+    files: ['dist/**/*', '**/*.php'],
   })
   .webpackConfig({
     module: {
