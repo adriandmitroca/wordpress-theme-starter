@@ -2,11 +2,23 @@ html {
   font-size: 10px;
 }
 
+html,
+body {
+  height: 100%;
+}
+
 body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   -webkit-overflow-scrolling: touch;
   overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+
+  & > .wrap {
+    flex: 1 0 auto;
+  }
+
 }
 
 p,
