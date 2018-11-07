@@ -182,20 +182,22 @@ function modular_template()
             load_module($module);
 
             while ('predefined_template' === $module['acf_fc_layout']) {
-                $nested_modules = get_field('sections', $module['template']);
+                foreach ($module['template'] as $item) {
+                    $nested_modules = get_field('sections', $item);
 
-                if ( ! $nested_modules) {
-                    break;
-                }
+                    if ( ! $nested_modules) {
+                        break;
+                    }
 
-                foreach ($nested_modules as $key => $module) {
-                    if ( ! empty($module['template']) && $module['template'] instanceof WP_Post) {
-                        $nested_modules_inner = get_field('sections', $module['template']);
-                        foreach ($nested_modules_inner as $module) {
+                    foreach ($nested_modules as $key => $module) {
+                        if ( ! empty($module['template']) && $module['template'] instanceof WP_Post) {
+                            $nested_modules_inner = get_field('sections', $module['template']);
+                            foreach ($nested_modules_inner as $module) {
+                                load_module($module);
+                            }
+                        } else {
                             load_module($module);
                         }
-                    } else {
-                        load_module($module);
                     }
                 }
             }
