@@ -164,42 +164,20 @@ function pagination()
     echo '</ul>';
 }
 
-function load_module($module)
+function modular_template($modules = null)
 {
-    $file_path = get_template_directory() . "/acf-modules/{$module['acf_fc_layout']}.php";
+    $modules = $modules ?: get_field('sections');
 
-    if (file_exists($file_path)) {
-        include $file_path;
-    }
-}
+    foreach ($modules ?: [] as $module) {
+        if ($module['acf_fc_layout'] === 'predefined_template') {
+            foreach ($module['template'] as $nested) {
+                modular_template(get_field('sections', $nested));
+            }
+        } else {
+            $path = get_template_directory() . "/acf-modules/{$module['acf_fc_layout']}.php";
 
-function modular_template()
-{
-    $modules = get_field('sections');
-
-    if (is_array($modules)) {
-        foreach ($modules as $key => $module) {
-            load_module($module);
-
-            while ('predefined_template' === $module['acf_fc_layout']) {
-                foreach ($module['template'] as $item) {
-                    $nested_modules = get_field('sections', $item);
-
-                    if ( ! $nested_modules) {
-                        break;
-                    }
-
-                    foreach ($nested_modules as $key => $module) {
-                        if ( ! empty($module['template']) && $module['template'] instanceof WP_Post) {
-                            $nested_modules_inner = get_field('sections', $module['template']);
-                            foreach ($nested_modules_inner as $module) {
-                                load_module($module);
-                            }
-                        } else {
-                            load_module($module);
-                        }
-                    }
-                }
+            if (file_exists($path)) {
+                include $path;
             }
         }
     }
