@@ -164,14 +164,21 @@ function pagination()
     echo '</ul>';
 }
 
-function modular_template($modules = null)
+function modular_template($modules = null, $occurrences = 1)
 {
-    $modules = $modules ?: get_field('sections');
+    if ($occurrences > 20) {
+        trigger_error(
+            'Danger for infinity loop has been detected. Only 20 nesting levels are allowed.',
+            E_USER_ERROR);
+        exit();
+    }
+
+    $modules = $modules ?: ($occurrences === 1 ? get_field('sections') : []);
 
     foreach ($modules ?: [] as $module) {
-        if ($module['acf_fc_layout'] === 'predefined_template') {
+        if ($module['acf_fc_layout'] === 'predefined_template' && $module['template']) {
             foreach ($module['template'] as $nested) {
-                modular_template(get_field('sections', $nested));
+                modular_template(get_field('sections', $nested), $occurrences += 1);
             }
         } else {
             $path = get_template_directory() . "/acf-modules/{$module['acf_fc_layout']}.php";
