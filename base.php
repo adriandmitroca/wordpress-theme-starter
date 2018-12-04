@@ -3,7 +3,7 @@
 <head>
   <meta charset="<?php bloginfo('charset') ?>">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=5">
 
     <?php wp_head() ?>
     <?= ! WP_DEBUG ? get_field('scripts_head', 'option') : '' ?>
