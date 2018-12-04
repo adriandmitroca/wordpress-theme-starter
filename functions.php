@@ -11,6 +11,7 @@
 require_once 'src/vendor/class-tgm-plugin-activation.php';
 require_once 'src/vendor/class-wp-bootstrap-navwalker.php';
 require_once 'src/vendor/class-sage-wrapping.php';
+require_once 'src/class-module-preview.php';
 
 require_once 'src/helpers.php';
 require_once 'src/plugins.php';
