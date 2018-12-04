@@ -10,6 +10,8 @@
 add_action('wp_enqueue_scripts', function () {
     wp_deregister_script('jquery');
 
+    wp_enqueue_script('polyfill', 'https://cdn.polyfill.io/v2/polyfill.min.js?unknown=polyfill&rum=1', [], false, true);
+
     wp_enqueue_script('jquery', 'https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js', [], false, true);
 
     wp_enqueue_style('main-css',
@@ -20,7 +22,7 @@ add_action('wp_enqueue_scripts', function () {
 
     wp_enqueue_script('main-js',
         get_template_directory_uri() . '/dist/js/app.js',
-        ['jquery'],
+        ['polyfill', 'jquery'],
         filemtime(get_template_directory() . '/dist/js/app.js'),
         true
     );
