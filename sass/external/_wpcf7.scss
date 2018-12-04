@@ -1,0 +1,126 @@
+.wpcf7 {
+  .wpcf7-not-valid {
+    border-color: #e56c6c;
+    transition: all 0.3s ease;
+
+    &::placeholder {
+      color: currentColor;
+    }
+  }
+
+  span.wpcf7-not-valid-tip {
+    margin-top: 0.5rem;
+    font-size: 1.3rem;
+    color: #d94848;
+  }
+
+  div.wpcf7-validation-errors {
+    @extend .alert, .alert-danger;
+  }
+
+  div.wpcf7-mail-sent-ok {
+    @extend .alert, .alert-success;
+  }
+
+  div.wpcf7-response-output {
+    text-align: center;
+    margin: $form-group-margin-bottom 0 0;
+  }
+
+  .wpcf7-text,
+  .wpcf7-textarea {
+    @extend .form-control;
+  }
+
+  .wpcf7-select {
+    @extend .custom-select;
+
+    color: $input-placeholder-color;
+
+    &.filled {
+      color: $input-color;
+    }
+  }
+
+  .wpcf7-acceptance {
+    span.wpcf7-list-item {
+      margin: 0;
+      position: relative;
+
+      a {
+        color: currentColor;
+        border-bottom: 0.1rem solid currentColor;
+        font-weight: 600;
+
+        &:hover {
+          text-decoration: none;
+        }
+      }
+
+      label {
+        margin: 0;
+      }
+
+      input[type=checkbox] {
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        + span {
+          padding-left: 3.5rem;
+          position: relative;
+          box-decoration-break: clone;
+
+          &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: -0.1rem;
+            width: 2.2rem;
+            height: 2.2rem;
+            border: 0.1rem solid theme-color();
+            border-radius: 0.5rem;
+            background: #fff;
+          }
+
+          &::after {
+            position: absolute;
+            top: 0;
+            left: 0;
+            line-height: 0.8;
+            opacity: 0;
+            transition: all 0.2s;
+            width: 2.2rem;
+            height: 2.2rem;
+            padding: 0.5rem;
+          }
+        }
+
+        &:checked + span::after {
+          opacity: 1;
+        }
+      }
+    }
+
+    &.wpcf7-not-valid {
+      input[type=checkbox] + span::before {
+        border-color: theme-color(danger) !important;
+      }
+    }
+
+    & + span.wpcf7-not-valid-tip {
+      margin-top: -0.5rem;
+      text-align: left;
+    }
+  }
+
+  .wpcf7-form-control-wrap {
+    display: block;
+    margin-bottom: $form-group-margin-bottom;
+  }
+
+  input[type=submit] {
+    @extend .btn, .btn-primary;
+  }
+}

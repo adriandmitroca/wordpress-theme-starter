@@ -1,0 +1,76 @@
+.svg-container {
+  font-size: 0;
+  line-height: 0;
+  display: inline-block;
+  vertical-align: middle;
+  max-height: 100%;
+  max-width: 100%;
+  transition: all 0.3s ease;
+
+  .placeholder {
+    min-height: 0.1rem;
+  }
+
+  &:not(.no-color) {
+    svg {
+      width: inherit;
+      height: inherit;
+      display: inline-block;
+      color: inherit !important;
+
+      [style*='stroke:#']:not(.nocolor),
+      [style*='stroke: #']:not(.nocolor),
+      [stroke*='#']:not(.nocolor) {
+        stroke: currentColor !important;
+        transition: stroke 0.3s ease;
+      }
+
+      [style*='fill:#']:not(.nocolor),
+      [style*='fill: #']:not(.nocolor),
+      [fill*='#']:not(.nocolor) {
+        fill: currentColor !important;
+        transition: fill 0.3s ease;
+      }
+
+      [fill*='none'] {
+        fill: transparent;
+      }
+
+      [stroke*='none'] {
+        stroke: transparent;
+      }
+    }
+  }
+}
+
+button {
+  &.loader {
+    color: transparent !important;
+    pointer-events: none;
+    position: relative;
+
+    &::after {
+      animation: spinAround 500ms infinite linear;
+      border: 2px solid #dbdbdb;
+      border-radius: 290486px;
+      border-right-color: transparent;
+      border-top-color: transparent;
+      content: "";
+      width: 1em;
+      height: 1em;
+      position: absolute;
+      left: calc(50% - (1em / 2));
+      top: calc(50% - (1em / 2));
+    }
+  }
+}
+
+@keyframes spinAround {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(359deg);
+  }
+}
