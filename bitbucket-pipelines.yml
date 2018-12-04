@@ -7,18 +7,18 @@ pipelines:
           caches:
             - node
           script:
-            - apt-get update && apt-get install rsync -y
             - yarn install
             - yarn lint
             - yarn prod
             - yarn rsync:staging
+          deployment: staging
     master:
       - step:
           caches:
             - node
           script:
-            - apt-get update && apt-get install rsync -y
             - yarn install
             - yarn lint
             - yarn prod
             - yarn rsync:production
+          deployment: production
