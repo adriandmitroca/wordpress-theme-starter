@@ -196,3 +196,48 @@ function ends_with($haystack, $needle)
 
     return $length === 0 || (substr($haystack, -$length) === $needle);
 }
+
+function str_contains($haystack, $needle)
+{
+    $needlePos = strpos($haystack, $needle);
+
+    return ($needlePos === false ? false : ($needlePos + 1));
+}
+
+function str_limit($value, $limit = 100, $end = '...')
+{
+    if (mb_strwidth($value, 'UTF-8') <= $limit) {
+        return $value;
+    }
+
+    return rtrim(mb_strimwidth($value, 0, $limit, '', 'UTF-8')) . $end;
+}
+
+function render($template, $vars = [])
+{
+    extract($vars);
+    include(get_template_directory() . '/' . $template . '.php');
+}
+
+function load_page_modules(WP_Post $data)
+{
+    global $post;
+    $post = $data;
+    modular_template();
+    wp_reset_postdata();
+}
+
+function find_page_by_module($name)
+{
+    $result = ModulePreview::findExample($name, 1);
+
+    return $result['page'] ?? false;
+}
+
+function load_single_module($module_name, $module = [])
+{
+    $path = get_template_directory() . "/acf-modules/{$module_name}.php";
+    if (file_exists($path)) {
+        include $path;
+    }
+}
