@@ -1,9 +1,13 @@
 {
+  "plugins": [
+    "stylelint-prettier"
+  ],
   "extends": [
     "stylelint-config-standard",
     "stylelint-config-recommended-scss"
   ],
   "rules": {
-    "no-descending-specificity": null
+    "no-descending-specificity": null,
+    "prettier/prettier": true
   }
 }

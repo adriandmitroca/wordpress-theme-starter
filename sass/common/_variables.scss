@@ -1,13 +1,13 @@
-$image-path: '../../static/images';
-$vector-path: '../../static/vectors';
-$font-path: '../../static/fonts';
+$image-path: "../../static/images";
+$vector-path: "../../static/vectors";
+$font-path: "../../static/fonts";
 
 $color-primary: #007bff;
 
 $font-size-base: 1.6rem;
 
 $theme-colors: (
-  primary: $color-primary,
+  primary: $color-primary
 );
 
 $input-focus-border-color: $color-primary;

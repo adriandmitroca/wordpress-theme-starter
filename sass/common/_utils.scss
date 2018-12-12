@@ -18,25 +18,25 @@
       display: inline-block;
       color: inherit !important;
 
-      [style*='stroke:#']:not(.nocolor),
-      [style*='stroke: #']:not(.nocolor),
-      [stroke*='#']:not(.nocolor) {
+      [style*="stroke:#"]:not(.nocolor),
+      [style*="stroke: #"]:not(.nocolor),
+      [stroke*="#"]:not(.nocolor) {
         stroke: currentColor !important;
         transition: stroke 0.3s ease;
       }
 
-      [style*='fill:#']:not(.nocolor),
-      [style*='fill: #']:not(.nocolor),
-      [fill*='#']:not(.nocolor) {
+      [style*="fill:#"]:not(.nocolor),
+      [style*="fill: #"]:not(.nocolor),
+      [fill*="#"]:not(.nocolor) {
         fill: currentColor !important;
         transition: fill 0.3s ease;
       }
 
-      [fill*='none'] {
+      [fill*="none"] {
         fill: transparent;
       }
 
-      [stroke*='none'] {
+      [stroke*="none"] {
         stroke: transparent;
       }
     }
