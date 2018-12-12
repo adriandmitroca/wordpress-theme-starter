@@ -1,6 +1,5 @@
 const mix = require('laravel-mix');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
-const webpack = require('webpack');
 
 mix.js('js/app.js', 'dist/js')
   .sass('sass/app.scss', 'dist/css')
@@ -27,9 +26,6 @@ mix.js('js/app.js', 'dist/js')
     },
     plugins: [
       new StyleLintPlugin({ lintDirtyModulesOnly: !mix.inProduction() }),
-      new webpack.ProvidePlugin({
-        Util: 'exports-loader?Util!bootstrap/js/dist/util',
-      }),
     ],
     resolve: {
       alias: {
