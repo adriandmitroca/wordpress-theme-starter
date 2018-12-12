@@ -7,3 +7,5 @@ add_filter('get_custom_logo', function ($html) {
 add_filter('embed_oembed_html', function ($html, $url, $attr) {
     return $html !== '' ? '<div class="embed-responsive embed-responsive-16by9">' . $html . '</div>' : '';
 }, 10, 3);
+
+add_filter('use_block_editor_for_post', '__return_false', 10);
