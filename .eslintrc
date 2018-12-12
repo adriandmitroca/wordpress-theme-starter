@@ -3,9 +3,6 @@
   "plugins": [
     "import"
   ],
-  "parserOptions": {
-    "ecmaVersion": 2017
-  },
   "env": {
     "browser": true,
     "jquery": true,
