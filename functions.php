@@ -8,6 +8,16 @@
  * across separate files in the `/src` directory.
  */
 
+spl_autoload_register(function ($class) {
+    $class = str_replace(['Rcore\\', '\\'], ['', '/'], $class);
+    $CLASSES_DIR = __DIR__ . DIRECTORY_SEPARATOR . 'src' . DIRECTORY_SEPARATOR;
+    $file = $CLASSES_DIR . $class . '.php';
+
+    if (file_exists($file)) {
+        include $file;
+    }
+});
+
 require_once 'src/vendor/class-tgm-plugin-activation.php';
 require_once 'src/vendor/class-wp-bootstrap-navwalker.php';
 require_once 'src/vendor/class-sage-wrapping.php';

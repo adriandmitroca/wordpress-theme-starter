@@ -1,243 +1,113 @@
 <?php
 
-function get_svg($name)
-{
-    ob_start();
-    include get_template_directory() . '/static/vectors/' . $name . '.svg';
-
-    return ob_get_clean();
-}
-
-function get_svg_url($name)
-{
-    return get_template_directory_uri() . '/static/vectors/' . $name . '.svg';
-}
-
-function the_svg($name, $class = '')
-{
-    echo '<span class="svg-container ' . $class . '">' . get_svg($name) . '</span>';
-}
-
-function get_image($image)
-{
-    if (ends_with($image, '.svg')) {
-        return get_template_directory_uri() . '/static/vectors/' . $image;
-    }
-
-    return get_template_directory_uri() . '/static/images/' . $image;
-}
-
-function the_image($name)
-{
-    echo get_image($name);
-}
-
-function safe_email($email)
-{
-    $character_set = '+-.0123456789@ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz';
-
-    $key = str_shuffle($character_set);
-    $cipher_text = '';
-    $id = 'e' . rand(1, 999999999);
-    $length = strlen($email);
-
-    for ($i = 0; $i < $length; $i++) {
-        $cipher_text .= $key[strpos($character_set, $email[$i])];
-    }
-
-    $script = 'var a="' . $key . '";var b=a.split("").sort().join("");var c="' . $cipher_text . '";var d="";';
-
-    $script .= 'for(var e=0;e<c.length;e++)d+=b.charAt(a.indexOf(c.charAt(e)));';
-
-    $script .= 'document.getElementById("' . $id . '").innerHTML="<a href=\\"mailto:"+d+"\\">"+d+"</a>"';
-
-    $script = 'eval("' . str_replace(['\\', '"'], ['\\\\', '\"'], $script) . '")';
-
-    $script = '<script type="text/javascript">/*<![CDATA[*/' . $script . '/*]]>*/</script>';
-
-    echo '<span id="' . $id . '">[javascript protected email address]</span>' . $script;
-}
-
-function phone_link($phone, $class = '')
-{
-    echo '<a class="' . $class . '" href="tel:' . str_replace(' ', '', $phone) . '">' . $phone . '</a>';
-}
-
-function pagination()
-{
-    if (is_singular()) {
-        return;
-    }
-
-    global $wp_query;
-
-    if ($wp_query->max_num_pages <= 1) {
-        return;
-    }
-
-    $paged = get_query_var('paged') ? absint(get_query_var('paged')) : 1;
-    $max = intval($wp_query->max_num_pages);
-
-    /** Add current page to the array */
-    if ($paged >= 1) {
-        $links[] = $paged;
-    }
-
-    /** Add the pages around the current page to the array */
-    if ($paged >= 3) {
-        $links[] = $paged - 1;
-        $links[] = $paged - 2;
-    }
-
-    if (($paged + 2) <= $max) {
-        $links[] = $paged + 2;
-        $links[] = $paged + 1;
-    }
-
-    echo '<ul class="pagination justify-content-center">' . "\n";
-
-    /** Previous Post Link */
-    if (get_previous_posts_link()) {
-        printf(
-            '<li class="page-item">' . str_replace(
-                '<a',
-                '<a class="page-link"',
-                get_previous_posts_link('<span aria-hidden="true">&laquo;</span>')
-            ) . '</li>'
-        );
-    }
-
-    /** Link to first page, plus ellipses if necessary */
-    if ( ! in_array(1, $links)) {
-        $class = 1 == $paged ? ' class="active page-item"' : ' class="page-item"';
-
-        printf(
-            '<li%s><a class="page-link" href="%s">%s</a></li>' . "\n",
-            $class,
-            esc_url(get_pagenum_link(1)),
-            '1'
-        );
-
-        if ( ! in_array(2, $links)) {
-            echo '<li><span>…</span></li>';
-        }
-    }
-
-    /** Link to current page, plus 2 pages in either direction if necessary */
-    sort($links);
-    foreach ((array)$links as $link) {
-        $class = $paged == $link ? ' class="active page-item"' : ' class="page-item"';
-        printf(
-            '<li%s><a class="page-link" href="%s">%s</a></li>' . "\n",
-            $class,
-            esc_url(get_pagenum_link($link)),
-            $link
-        );
-    }
-
-    /** Link to last page, plus ellipses if necessary */
-    if ( ! in_array($max, $links)) {
-        if ( ! in_array($max - 1, $links)) {
-            echo '<li><span>…</span></li>';
-        }
-
-        $class = $paged == $max ? ' class="active page-item"' : ' class="page-item"';
-        printf(
-            '<li%s><a class="page-link" href="%s">%s</a></li>' . "\n",
-            $class,
-            esc_url(get_pagenum_link($max)),
-            $max
-        );
-    }
-
-    /** Next Post Link */
-    if (get_next_posts_link()) {
-        printf(
-            '<li class="page-item">' . str_replace(
-                '<a',
-                '<a class="page-link"',
-                get_next_posts_link('<span aria-hidden="true">&raquo;</span>')
-            ) . '</li>'
-        );
-    }
-
-    echo '</ul>';
-}
-
-function modular_template($modules = null, $occurrences = 1)
-{
-    if ($occurrences > 20) {
-        trigger_error(
-            'Danger for infinity loop has been detected. Only 20 nesting levels are allowed.',
-            E_USER_ERROR);
-        exit();
-    }
-
-    $modules = $modules ?: ($occurrences === 1 ? get_field('sections') : []);
-
-    foreach ($modules ?: [] as $module) {
-        if ($module['acf_fc_layout'] === 'predefined_template' && $module['template']) {
-            foreach ($module['template'] as $nested) {
-                modular_template(get_field('sections', $nested), $occurrences += 1);
-            }
-        } else {
-            $path = get_template_directory() . "/acf-modules/{$module['acf_fc_layout']}.php";
-
-            if (file_exists($path)) {
-                include $path;
-            }
-        }
+if ( ! function_exists('get_svg')) {
+    function get_svg($name)
+    {
+        return \Rcore\Helpers\Image::svg($name);
     }
 }
 
-function ends_with($haystack, $needle)
-{
-    $length = strlen($needle);
-
-    return $length === 0 || (substr($haystack, -$length) === $needle);
-}
-
-function str_contains($haystack, $needle)
-{
-    $needlePos = strpos($haystack, $needle);
-
-    return ($needlePos === false ? false : ($needlePos + 1));
-}
-
-function str_limit($value, $limit = 100, $end = '...')
-{
-    if (mb_strwidth($value, 'UTF-8') <= $limit) {
-        return $value;
+if ( ! function_exists('the_svg')) {
+    function the_svg($name, $class = '')
+    {
+        echo \Rcore\Helpers\Image::svgHtml($name, $class);
     }
-
-    return rtrim(mb_strimwidth($value, 0, $limit, '', 'UTF-8')) . $end;
 }
 
-function render($template, $vars = [])
-{
-    extract($vars);
-    include(get_template_directory() . '/' . $template . '.php');
+if ( ! function_exists('get_image')) {
+    function get_image($filename)
+    {
+        return \Rcore\Helpers\Image::imageUrl($filename);
+    }
 }
 
-function load_page_modules(WP_Post $data)
-{
-    global $post;
-    $post = $data;
-    modular_template();
-    wp_reset_postdata();
+if ( ! function_exists('the_image')) {
+    function the_image($filename)
+    {
+        echo \Rcore\Helpers\Image::imageUrl($filename);
+    }
 }
 
-function find_page_by_module($name)
-{
-    $result = ModulePreview::findExample($name, 1);
-
-    return $result['page'] ?? false;
+if ( ! function_exists('safe_email')) {
+    function safe_email($email)
+    {
+        echo \Rcore\Helpers\Html::email($email);
+    }
 }
 
-function load_single_module($module_name, $module = [])
-{
-    $path = get_template_directory() . "/acf-modules/{$module_name}.php";
-    if (file_exists($path)) {
-        include $path;
+if ( ! function_exists('phone_link')) {
+    function phone_link($phone, $class = '')
+    {
+        echo \Rcore\Helpers\Html::phone($phone, $class);
+    }
+}
+
+if ( ! function_exists('pagination')) {
+    function pagination()
+    {
+        echo \Rcore\Helpers\Pagination::render();
+    }
+}
+
+if ( ! function_exists('render')) {
+    function render($template, $vars = [])
+    {
+        \Rcore\Helpers\Template::render($template, $vars);
+    }
+}
+
+if ( ! function_exists('modular_template')) {
+    function modular_template($modules = null, $occurrences = 1)
+    {
+        \Rcore\Helpers\Template::load($modules, $occurrences);
+    }
+}
+
+if ( ! function_exists('load_page_modules')) {
+    function load_page_modules(WP_Post $page)
+    {
+        \Rcore\Helpers\Template::loadForPage($page);
+    }
+}
+
+if ( ! function_exists('find_page_by_module')) {
+    function find_page_by_module($name)
+    {
+        return \Rcore\Helpers\Template::getPageNameByModuleName($name);
+    }
+}
+
+if ( ! function_exists('str_contains')) {
+    function str_contains($haystack, $needles)
+    {
+        return \Rcore\Helpers\Str::contains($haystack, $needles);
+    }
+}
+
+if ( ! function_exists('str_limit')) {
+    function str_limit($value, $limit = 100, $end = '...')
+    {
+        return \Rcore\Helpers\Str::limit($value, $limit, $end);
+    }
+}
+
+if ( ! function_exists('starts_with')) {
+    function starts_with($haystack, $needles)
+    {
+        return \Rcore\Helpers\Str::startsWith($haystack, $needles);
+    }
+}
+
+if ( ! function_exists('ends_with')) {
+    function ends_with($haystack, $needles)
+    {
+        return \Rcore\Helpers\Str::endsWith($haystack, $needles);
+    }
+}
+
+if ( ! function_exists('fetch_video_thumbnail')) {
+    function fetch_video_thumbnail($url)
+    {
+        return Rcore\Helpers\Video::fetchThumbnail($url);
     }
 }
