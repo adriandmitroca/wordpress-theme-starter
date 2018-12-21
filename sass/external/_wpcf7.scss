@@ -71,12 +71,13 @@
           padding-left: 3.5rem;
           position: relative;
           box-decoration-break: clone;
+          user-select: none;
 
           &::before {
             content: "";
             position: absolute;
             left: 0;
-            top: -0.1rem;
+            top: -0.2rem;
             width: 2.2rem;
             height: 2.2rem;
             border: 0.1rem solid theme-color();
@@ -86,14 +87,15 @@
 
           &::after {
             position: absolute;
-            top: 0;
+            top: -0.1rem;
             left: 0;
-            line-height: 0.8;
+            line-height: 0;
             opacity: 0;
             transition: all 0.2s;
             width: 2.2rem;
             height: 2.2rem;
             padding: 0.5rem;
+            content: str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 8'%3E%3Cpath fill='#{theme-color()}' d='M3.746 7.999a.626.626 0 0 1-.441-.18L.181 4.745a.609.609 0 0 1 0-.87.631.631 0 0 1 .883 0L3.7 6.469 8.885.232a.631.631 0 0 1 .879-.086.608.608 0 0 1 .089.865L4.23 7.773a.628.628 0 0 1-.452.225l-.032.001z'/%3E%3C/svg%3E"), "#", "%23");
           }
         }
 
@@ -107,11 +109,6 @@
       input[type="checkbox"] + span::before {
         border-color: theme-color(danger) !important;
       }
-    }
-
-    & + span.wpcf7-not-valid-tip {
-      margin-top: -0.5rem;
-      text-align: left;
     }
   }
 
