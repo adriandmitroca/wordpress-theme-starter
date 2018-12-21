@@ -44,34 +44,87 @@
     height: auto;
   }
 
-  img.alignright {
-    float: right;
-    margin: 0 0 2.5rem 1rem;
+  @media (min-width: breakpoint-min(md)) {
+    img.alignleft {
+      float: left;
+      margin: 1.5rem 1.5rem 1.5rem 0;
+    }
+
+    img.alignright {
+      float: right;
+      margin: 1.5rem 0 1.5rem 1.5rem;
+    }
+
+    .alignright {
+      float: right;
+    }
+
+    .alignleft {
+      float: left;
+    }
   }
 
-  img.alignleft {
-    float: left;
-    margin: 0 1rem 2.5rem 0;
+  @media (max-width: breakpoint-max(sm)) {
+    .alignleft,
+    .alignright,
+    img.alignleft,
+    img.alignright {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
   }
 
+  .aligncenter,
   img.aligncenter {
     display: block;
     margin-left: auto;
     margin-right: auto;
   }
 
-  .alignright {
-    float: right;
+  ul,
+  ol {
+    padding: 0;
+    list-style: none;
+    clear: both;
+
+    li {
+      position: relative;
+      padding-left: 3rem;
+      line-height: 1.4;
+
+      &:not(:last-child) {
+        margin-bottom: 0.7rem;
+      }
+    }
   }
 
-  .alignleft {
-    float: left;
+  ol {
+    counter-reset: ol-counter;
+
+    li::before {
+      content: counter(ol-counter);
+      counter-increment: ol-counter;
+      position: absolute;
+      top: 0.1rem;
+      left: 0.2rem;
+      font-weight: 500;
+      color: theme-color();
+    }
   }
 
-  .aligncenter {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+  ul {
+    li {
+      &::before {
+        content: str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 13 11'%3E%3Cpath fill='#{theme-color()}' d='M13.097 5.487c0 .149-.06.283-.157.38l-4.298 4.298a.534.534 0 0 1-.759 0 .537.537 0 0 1 0-.76l3.38-3.381H1.1a.537.537 0 1 1 0-1.074h10.163l-3.38-3.381a.537.537 0 0 1 .759-.76l4.298 4.298a.537.537 0 0 1 .157.38z'/%3E%3C/svg%3E"), "#", "%23");
+        width: 1.3rem;
+        height: 1.1rem;
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    }
   }
 
   figure {
