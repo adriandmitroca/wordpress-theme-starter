@@ -5,6 +5,7 @@ $font-path: "../../static/fonts";
 $color-primary: #007bff;
 
 $font-size-base: 1.6rem;
+$line-height-base: 1.2;
 
 $theme-colors: (
   primary: $color-primary
@@ -12,3 +13,12 @@ $theme-colors: (
 
 $input-focus-border-color: $color-primary;
 $input-focus-box-shadow: 0 0 1rem rgba($color-primary, 0.2);
+
+$custom-control-indicator-size: 1.6rem;
+$custom-control-gutter: 0.8rem;
+
+$btn-padding-x: 1.2rem;
+$btn-padding-y: 0.6rem;
+
+$alert-padding-y: 1.2rem;
+$alert-padding-x: 2rem;
