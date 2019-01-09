@@ -1,10 +1,10 @@
 .svg-container {
+  display: inline-block;
+  max-width: 100%;
+  max-height: 100%;
   font-size: 0;
   line-height: 0;
-  display: inline-block;
   vertical-align: middle;
-  max-height: 100%;
-  max-width: 100%;
   transition: all 0.3s ease;
 
   .placeholder {
@@ -13,9 +13,9 @@
 
   &:not(.no-color) {
     svg {
+      display: inline-block;
       width: inherit;
       height: inherit;
-      display: inline-block;
       color: inherit !important;
 
       [style*="stroke:#"]:not(.nocolor),
@@ -45,22 +45,22 @@
 
 button {
   &.loader {
+    position: relative;
     color: transparent !important;
     pointer-events: none;
-    position: relative;
 
     &::after {
-      animation: spinAround 500ms infinite linear;
-      border: 2px solid #dbdbdb;
-      border-radius: 290486px;
-      border-right-color: transparent;
-      border-top-color: transparent;
-      content: "";
+      position: absolute;
+      top: calc(50% - (1em / 2));
+      left: calc(50% - (1em / 2));
       width: 1em;
       height: 1em;
-      position: absolute;
-      left: calc(50% - (1em / 2));
-      top: calc(50% - (1em / 2));
+      content: "";
+      border: 2px solid #dbdbdb;
+      border-top-color: transparent;
+      border-right-color: transparent;
+      border-radius: 290486px;
+      animation: spinAround 500ms infinite linear;
     }
   }
 }
