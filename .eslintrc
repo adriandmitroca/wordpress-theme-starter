@@ -1,5 +1,9 @@
 {
-  "extends": ["airbnb-base", "prettier"],
+  "extends": [
+    "airbnb-base",
+    "plugin:vue/recommended",
+    "prettier"
+  ],
   "plugins": [
     "import"
   ],
@@ -10,6 +14,9 @@
   },
   "rules": {
     "func-names": ["error", "as-needed"],
-    "radix": 0
+    "radix": 0,
+    "no-console": ["error", { "allow": [ "warn", "info", "error" ] }],
+    "vue/no-v-html": "off",
+    "vue/component-name-in-template-casing": "off"
   }
 }
