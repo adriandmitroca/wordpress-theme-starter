@@ -16,6 +16,8 @@
     "precommit": "npm run lint"
   },
   "devDependencies": {
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "babel-eslint": "^10.0.1",
     "browser-sync": "^2.26.3",
     "browser-sync-webpack-plugin": "^2.2.2",
     "cross-env": "^5.2.0",

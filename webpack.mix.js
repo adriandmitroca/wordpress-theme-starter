@@ -1,12 +1,15 @@
 const mix = require('laravel-mix');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 
+const DEV_DOMAIN = 'wp-boilerplate.test';
+const THEME_DIRECTORY = 'wp-boilerplate';
+
 mix.js('js/app.js', 'dist/js')
   .sass('sass/app.scss', 'dist/css')
   .sourceMaps()
   .options({ processCssUrls: false })
   .browserSync({
-    proxy: 'wp-boilerplate.test',
+    proxy: DEV_DOMAIN,
     files: ['dist/**/*', '**/*.php'],
   })
   .webpackConfig({
@@ -23,6 +26,10 @@ mix.js('js/app.js', 'dist/js')
           },
         },
       ],
+    },
+    output: {
+      publicPath: '/wp-content/themes/' + THEME_DIRECTORY,
+      chunkFilename: 'dist/js/[name].[chunkhash].js',
     },
     plugins: [
       new StyleLintPlugin({ lintDirtyModulesOnly: !mix.inProduction() }),

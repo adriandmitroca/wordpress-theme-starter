@@ -7,6 +7,9 @@
   "plugins": [
     "import"
   ],
+  "parserOptions": {
+    "parser": "babel-eslint"
+  },
   "env": {
     "browser": true,
     "jquery": true,
