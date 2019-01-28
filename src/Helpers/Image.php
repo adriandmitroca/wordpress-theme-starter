@@ -21,9 +21,9 @@ class Image
     public static function imageUrl($filename)
     {
         if (Str::endsWith($filename, '.svg')) {
-            return get_template_directory_uri() . '/static/vectors/' . $filename;
+            return get_template_directory_uri() . '/static/vectors/' . $filename . '?v=' . filemtime(get_template_directory() . '/static/vectors/' . $filename);
         }
 
-        return get_template_directory_uri() . '/static/images/' . $filename;
+        return get_template_directory_uri() . '/static/images/' . $filename . '?v=' . filemtime(get_template_directory() . '/static/vectors/' . $filename);
     }
 }
