@@ -6,7 +6,7 @@ const THEME_DIRECTORY = 'wp-boilerplate';
 
 mix.js('js/app.js', 'dist/js')
   .sass('sass/app.scss', 'dist/css')
-  .sourceMaps()
+  .sourceMaps(mix.inProduction(), 'inline-source-map')
   .options({ processCssUrls: false })
   .browserSync({
     proxy: DEV_DOMAIN,
