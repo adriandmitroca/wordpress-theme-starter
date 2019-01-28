@@ -24,6 +24,6 @@ class Image
             return get_template_directory_uri() . '/static/vectors/' . $filename . '?v=' . filemtime(get_template_directory() . '/static/vectors/' . $filename);
         }
 
-        return get_template_directory_uri() . '/static/images/' . $filename . '?v=' . filemtime(get_template_directory() . '/static/vectors/' . $filename);
+        return get_template_directory_uri() . '/static/images/' . $filename . '?v=' . filemtime(get_template_directory() . '/static/images/' . $filename);
     }
 }
