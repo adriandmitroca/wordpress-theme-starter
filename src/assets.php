@@ -30,4 +30,4 @@ add_action('wp_enqueue_scripts', function () {
 
 add_action('wp_print_styles', function () {
     wp_deregister_style('contact-form-7');
-}, 100);
+});
