@@ -69,4 +69,8 @@
       @extend .is-invalid;
     }
   }
+
+  .screen-reader-response {
+    display: none;
+  }
 }

@@ -27,3 +27,7 @@ add_action('wp_enqueue_scripts', function () {
         true
     );
 });
+
+add_action('wp_print_styles', function () {
+    wp_deregister_style('contact-form-7');
+}, 100);
