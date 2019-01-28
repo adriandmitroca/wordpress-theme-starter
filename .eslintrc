@@ -4,9 +4,6 @@
     "plugin:vue/recommended",
     "prettier"
   ],
-  "plugins": [
-    "import"
-  ],
   "parserOptions": {
     "parser": "babel-eslint"
   },
@@ -16,9 +13,21 @@
     "es6": true
   },
   "rules": {
-    "func-names": ["error", "as-needed"],
+    "func-names": [
+      "error",
+      "as-needed"
+    ],
     "radix": 0,
-    "no-console": ["error", { "allow": [ "warn", "info", "error" ] }],
+    "no-console": [
+      "error",
+      {
+        "allow": [
+          "warn",
+          "info",
+          "error"
+        ]
+      }
+    ],
     "vue/no-v-html": "off",
     "vue/component-name-in-template-casing": "off"
   }
