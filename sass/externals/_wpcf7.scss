@@ -51,6 +51,23 @@
     }
   }
 
+  // Note: To match required HTML structure, radio inputs needs to have "Wrap each item with label element" (use_label_element) enabled.
+  .wpcf7-radio {
+    .wpcf7-list-item {
+      label {
+        @extend .custom-control, .custom-radio, .custom-control-inline;
+
+        input {
+          @extend .custom-control-input;
+        }
+
+        span {
+          @extend .custom-control-label;
+        }
+      }
+    }
+  }
+
   .wpcf7-form-control-wrap {
     display: block;
     margin-bottom: $form-group-margin-bottom;
