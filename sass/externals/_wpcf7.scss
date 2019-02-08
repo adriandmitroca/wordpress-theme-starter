@@ -40,7 +40,30 @@
       label {
         @extend .custom-control, .custom-checkbox;
 
+        cursor: pointer;
+
         input[type="checkbox"] {
+          @extend .custom-control-input;
+        }
+
+        span {
+          @extend .custom-control-label;
+        }
+      }
+    }
+  }
+
+  // Note: To match required HTML structure, checkbox inputs needs to have "Wrap each item with label element" (use_label_element) enabled.
+  .wpcf7-checkbox {
+    .wpcf7-list-item {
+      margin: 0;
+
+      label {
+        @extend .custom-control, .custom-checkbox, .custom-control-inline;
+
+        cursor: pointer;
+
+        input {
           @extend .custom-control-input;
         }
 
@@ -54,8 +77,12 @@
   // Note: To match required HTML structure, radio inputs needs to have "Wrap each item with label element" (use_label_element) enabled.
   .wpcf7-radio {
     .wpcf7-list-item {
+      margin: 0;
+
       label {
         @extend .custom-control, .custom-radio, .custom-control-inline;
+
+        cursor: pointer;
 
         input {
           @extend .custom-control-input;
