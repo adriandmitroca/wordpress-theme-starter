@@ -13,6 +13,10 @@
     @extend .alert, .alert-success;
   }
 
+  div.wpcf7-spam-blocked {
+    @extend .alert, .alert-warning;
+  }
+
   div.wpcf7-response-output {
     margin: $form-group-margin-bottom 0 0;
     text-align: center;
