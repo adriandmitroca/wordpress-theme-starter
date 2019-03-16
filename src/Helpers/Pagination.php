@@ -35,24 +35,32 @@ class Pagination
             $links[] = $paged + 1;
         }
 
-        echo '<div class="pagination-wrap d-flex align-items-center justify-content-between">';
+        echo '<ul class="pagination justify-content-center">' . "\n";
 
         /** Previous Post Link */
-        echo '<div class="prev">';
-        echo get_previous_posts_link('<p aria-hidden="true"><span class="svg-container icon">' . get_svg('long-arrow-left') . '</span> Previous page</p>');
-        echo '</div>';
-
-        echo '<ul class="pagination justify-content-center">' . "\n";
+        if (get_previous_posts_link()) {
+            printf(
+                '<li class="page-item">' . str_replace(
+                    '<a',
+                    '<a class="page-link"',
+                    get_previous_posts_link('<span aria-hidden="true">&laquo;</span>')
+                ) . '</li>'
+            );
+        }
 
         /** Link to first page, plus ellipses if necessary */
         if ( ! in_array(1, $links)) {
             $class = 1 == $paged ? ' class="active page-item"' : ' class="page-item"';
 
-            printf('<li%s><a class="page-link" href="%s">%s</a></li>' . "\n", $class, esc_url(get_pagenum_link(1)),
-                '1');
+            printf(
+                '<li%s><a class="page-link" href="%s">%s</a></li>' . "\n",
+                $class,
+                esc_url(get_pagenum_link(1)),
+                '1'
+            );
 
             if ( ! in_array(2, $links)) {
-                echo '<li><span>…</span></li>';
+                echo '<li class="page-item disabled"><span class="page-link">…</span></li>';
             }
         }
 
@@ -60,29 +68,40 @@ class Pagination
         sort($links);
         foreach ((array)$links as $link) {
             $class = $paged == $link ? ' class="active page-item"' : ' class="page-item"';
-            printf('<li%s><a class="page-link" href="%s">%s</a></li>' . "\n", $class, esc_url(get_pagenum_link($link)),
-                $link);
+            printf(
+                '<li%s><a class="page-link" href="%s">%s</a></li>' . "\n",
+                $class,
+                esc_url(get_pagenum_link($link)),
+                $link
+            );
         }
 
         /** Link to last page, plus ellipses if necessary */
         if ( ! in_array($max, $links)) {
             if ( ! in_array($max - 1, $links)) {
-                echo '<li><span>…</span></li>';
+                echo '<li class="page-item disabled"><span class="page-link">…</span></li>';
             }
 
             $class = $paged == $max ? ' class="active page-item"' : ' class="page-item"';
-            printf('<li%s><a class="page-link" href="%s">%s</a></li>' . "\n", $class, esc_url(get_pagenum_link($max)),
-                $max);
+            printf(
+                '<li%s><a class="page-link" href="%s">%s</a></li>' . "\n",
+                $class,
+                esc_url(get_pagenum_link($max)),
+                $max
+            );
+        }
+
+        /** Next Post Link */
+        if (get_next_posts_link()) {
+            printf(
+                '<li class="page-item">' . str_replace(
+                    '<a',
+                    '<a class="page-link"',
+                    get_next_posts_link('<span aria-hidden="true">&raquo;</span>')
+                ) . '</li>'
+            );
         }
 
         echo '</ul>';
-
-        /** Next Post Link */
-        echo '<div class="next">';
-        echo get_next_posts_link('<p aria-hidden="true">Next page <span class="svg-container icon">' . get_svg('long-arrow-right') . '</span></p>');
-        echo '</div>';
-
-        echo '</div>';
     }
-
 }
