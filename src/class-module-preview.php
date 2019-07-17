@@ -55,6 +55,7 @@ class ModulePreview
     {
         $groups = get_posts([
             'post_type' => 'acf-field-group',
+            'posts_per_page' => -1,
         ]);
 
         foreach ($groups as $group) {
