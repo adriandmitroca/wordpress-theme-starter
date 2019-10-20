@@ -1,0 +1,39 @@
+#!/usr/bin/env php
+<?php
+
+function camel2kebab($string)
+{
+	return strtolower(preg_replace(['/([a-z\d])([A-Z])/', '/([^_])([A-Z][a-z])/'], '$1_$2', $string));
+}
+
+function camel2dashed($string)
+{
+	return strtolower(preg_replace('/([a-zA-Z])(?=[A-Z])/', '$1-', $string));
+}
+
+if (empty($argv[1])) {
+	echo "Module name is required. Example: php module HeroBanner\n";
+
+	return;
+}
+
+$name = $argv[1];
+
+$phpFile = __DIR__ . '/acf-modules/' . camel2kebab($name) . '.php';
+$scssFile = __DIR__ . '/sass/modules/_' . camel2dashed($name) . '.scss';
+$mainScssFile = __DIR__ . '/sass/app.scss';
+
+file_put_contents($phpFile, "<section class=\"" . camel2dashed($name) . "\">
+	<div class=\"container\">
+		<?php var_dump(\$module) ?>
+	</div>
+</section>
+");
+
+file_put_contents($scssFile, "section." . camel2dashed($name) . " {
+  //
+}");
+
+file_put_contents($mainScssFile, "@import \"modules/" . camel2dashed($name) . "\";\n", FILE_APPEND);
+
+echo "Module created\n";
