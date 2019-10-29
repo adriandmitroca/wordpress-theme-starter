@@ -28,7 +28,7 @@ mix.js('js/app.js', 'dist/js')
       ],
     },
     output: {
-      publicPath: '/wp-content/themes/' + THEME_DIRECTORY,
+      publicPath: `/wp-content/themes/${THEME_DIRECTORY}/`,
       chunkFilename: 'dist/js/[name].[chunkhash].js',
     },
     plugins: [
