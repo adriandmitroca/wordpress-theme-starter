@@ -106,9 +106,35 @@
   figure {
     max-width: 100%;
 
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
     .wp-caption-text {
       margin-top: 0.3125rem;
+      font-size: 80%;
       color: $gray-600;
+      text-align: center;
+    }
+  }
+
+  .gallery {
+    display: flex;
+    align-items: center;
+    margin-right: -7px;
+    margin-left: -7px;
+
+    @for $i from 2 through 9 {
+      &.gallery-columns-#{$i} .gallery-item {
+        width: calc(100% / #{$i});
+      }
+    }
+
+    figure {
+      padding-right: 7px;
+      padding-left: 7px;
+      margin: 7px 0;
       text-align: center;
     }
   }
