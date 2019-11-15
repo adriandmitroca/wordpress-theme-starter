@@ -34,9 +34,7 @@ mix.js('js/app.js', 'dist/js')
     plugins: [
       new StyleLintPlugin({ lintDirtyModulesOnly: !mix.inProduction() }),
     ],
-    resolve: {
-      alias: {
-        jquery: 'jquery/src/jquery',
-      },
+    externals: {
+      jquery: 'jQuery',
     },
   });
