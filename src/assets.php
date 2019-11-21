@@ -10,7 +10,7 @@
 add_action('wp_enqueue_scripts', function () {
     wp_deregister_script('jquery');
 
-    wp_enqueue_script('polyfill', 'https://polyfill.io/v3/polyfill.min.js?rum=true&features=default', [], false, true);
+	wp_enqueue_script('polyfill', 'https://polyfill.io/v3/polyfill.min.js?features=default%2Ces7%2Ces5%2Ces6', [], false, true);
 
     wp_enqueue_script('jquery', 'https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js', [], false, true);
 
