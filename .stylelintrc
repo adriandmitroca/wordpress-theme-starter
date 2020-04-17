@@ -9,6 +9,9 @@
   ],
   "rules": {
     "no-descending-specificity": null,
-    "prettier/prettier": true
+    "prettier/prettier": true,
+    "selector-pseudo-element-no-unknown": [true, {
+      "ignorePseudoElements": ["v-deep"]
+    }]
   }
 }
