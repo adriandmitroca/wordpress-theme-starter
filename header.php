@@ -13,8 +13,8 @@
                 aria-controls="topNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-          <?php
-          wp_nav_menu([
+            <?php
+            wp_nav_menu([
               'theme_location' => 'top',
               'depth' => 2,
               'container' => 'div',
@@ -23,8 +23,8 @@
               'menu_class' => 'navbar-nav ml-auto',
               'fallback_cb' => 'WP_Bootstrap_Navwalker::fallback',
               'walker' => new WP_Bootstrap_Navwalker(),
-          ])
-          ?>
+            ])
+            ?>
       <?php endif ?>
   </div>
 </nav>

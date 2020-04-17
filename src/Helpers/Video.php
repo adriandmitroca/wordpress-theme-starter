@@ -19,7 +19,7 @@ class Video
     {
         $id = self::parseVimeoId($url);
 
-        if ( ! $id) {
+        if (! $id) {
             return null;
         }
 
@@ -32,7 +32,7 @@ class Video
     {
         $id = self::parseYouTubeId($url);
 
-        if ( ! $id) {
+        if (! $id) {
             return null;
         }
 

@@ -49,7 +49,7 @@ class Pagination
         }
 
         /** Link to first page, plus ellipses if necessary */
-        if ( ! in_array(1, $links)) {
+        if (! in_array(1, $links)) {
             $class = 1 == $paged ? ' class="active page-item"' : ' class="page-item"';
 
             printf(
@@ -59,7 +59,7 @@ class Pagination
                 '1'
             );
 
-            if ( ! in_array(2, $links)) {
+            if (! in_array(2, $links)) {
                 echo '<li class="page-item disabled"><span class="page-link">…</span></li>';
             }
         }
@@ -77,8 +77,8 @@ class Pagination
         }
 
         /** Link to last page, plus ellipses if necessary */
-        if ( ! in_array($max, $links)) {
-            if ( ! in_array($max - 1, $links)) {
+        if (! in_array($max, $links)) {
+            if (! in_array($max - 1, $links)) {
                 echo '<li class="page-item disabled"><span class="page-link">…</span></li>';
             }
 

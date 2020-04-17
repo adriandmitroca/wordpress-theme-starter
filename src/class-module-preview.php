@@ -8,7 +8,7 @@ class ModulePreview
 
     public function __construct()
     {
-        if ( ! function_exists('get_field')) {
+        if (! function_exists('get_field')) {
             return;
         }
 
@@ -33,7 +33,8 @@ class ModulePreview
                         'target' => '_blank',
                         'title' => 'Preview all available modules based on existing pages that were already configured.',
                     ],
-                ]);
+                ]
+            );
         }, 150);
     }
 
@@ -113,29 +114,29 @@ class ModulePreview
 
       <h2 class="section-title text-center py-4 my-0 bg-info text-white">Examples: <?= $target['label'] ?></h2>
 
-        <?php if ( ! count($data)): ?>
+        <?php if (! count($data)) : ?>
       <div class="container">
         <div class="mt-5 text-center alert alert-danger">
           Examples not found.
         </div>
       </div>
-    <?php endif ?>
+        <?php endif ?>
 
-        <?php foreach ($data as $_item): ?>
-        <?php if ($module = $_item['module']): ?>
-            <?php
-            global $post;
-            $post = $_item['page'];
-            ?>
+        <?php foreach ($data as $_item) : ?>
+            <?php if ($module = $_item['module']) : ?>
+                <?php
+                global $post;
+                $post = $_item['page'];
+                ?>
         <div class="border-bottom">
-            <?php include get_template_directory() . "/acf-modules/{$target['name']}.php"; ?>
+                <?php include get_template_directory() . "/acf-modules/{$target['name']}.php"; ?>
           <p class="text-center text-black-50 mt-1 mb-4">
             (source: <a target="_blank"
                         href="<?= get_permalink($_item['page']) ?>"><?= $_item['page']->post_title ?></a>)
           </p>
         </div>
-        <?php endif ?>
-    <?php endforeach;
+            <?php endif ?>
+        <?php endforeach;
     }
 
     public static function findExample($module_name, $limit = 3)
