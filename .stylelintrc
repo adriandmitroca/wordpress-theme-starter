@@ -1,15 +1,12 @@
 {
-  "plugins": [
-    "stylelint-prettier"
-  ],
   "extends": [
-    "stylelint-config-standard",
+    "stylelint-config-recommended",
     "stylelint-config-recommended-scss",
-    "stylelint-config-recess-order"
+    "stylelint-config-recess-order",
+    "stylelint-prettier/recommended"
   ],
   "rules": {
     "no-descending-specificity": null,
-    "prettier/prettier": true,
     "selector-pseudo-element-no-unknown": [true, {
       "ignorePseudoElements": ["v-deep"]
     }]
