@@ -5,22 +5,28 @@
     display: block;
   }
 
-  div.wpcf7-validation-errors {
-    @extend .alert, .alert-danger;
+  .wpcf7-response-output {
+    margin: $form-group-margin-bottom 0 0;
+    text-align: center;
   }
 
-  div.wpcf7-mail-sent-ok {
+  form.invalid,
+  form.failed,
+  form.aborted {
+    .wpcf7-response-output {
+      @extend .alert, .alert-danger;
+    }
+  }
+
+  form.sent .wpcf7-response-output {
     @extend .alert, .alert-success;
   }
 
-  div.wpcf7-spam-blocked,
-  div.wpcf7-acceptance-missing {
-    @extend .alert, .alert-warning;
-  }
-
-  div.wpcf7-response-output {
-    margin: $form-group-margin-bottom 0 0;
-    text-align: center;
+  form.spam,
+  form.unaccepted {
+    .wpcf7-response-output {
+      @extend .alert, .alert-warning;
+    }
   }
 
   .wpcf7-text,
