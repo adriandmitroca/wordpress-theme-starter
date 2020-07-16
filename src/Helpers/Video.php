@@ -15,6 +15,17 @@ class Video
         }
     }
 
+    public static function getEmbedUrl($url)
+    {
+        if (Str::contains($url, 'vimeo')) {
+            return 'https://player.vimeo.com/video/' . self::parseVimeoId($url) . '?title=0&byline=0&portrait=0';
+        }
+
+        if (Str::contains($url, ['youtube', 'youtu.be'])) {
+            return 'https://www.youtube-nocookie.com/embed/' . self::parseYouTubeId($url);
+        }
+    }
+
     public static function fetchVimeoThumbnail($url)
     {
         $id = self::parseVimeoId($url);
