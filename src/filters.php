@@ -15,3 +15,5 @@ add_filter('wp_get_attachment_image_attributes', function ($attr) {
 
     return $attr;
 });
+
+add_filter('xmlrpc_enabled', '__return_false');
