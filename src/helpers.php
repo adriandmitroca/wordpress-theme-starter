@@ -8,9 +8,9 @@ if (! function_exists('get_svg')) {
 }
 
 if (! function_exists('the_svg')) {
-    function the_svg($name, $class = '')
+    function the_svg($name)
     {
-        echo \Rcore\Helpers\Image::svgHtml($name, $class);
+        echo \Rcore\Helpers\Image::svg($name);
     }
 }
 

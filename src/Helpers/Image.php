@@ -13,11 +13,6 @@ class Image
         return ob_get_clean();
     }
 
-    public static function svgHtml($name, $class = '')
-    {
-        return '<span class="svg-container ' . $class . '">' . self::svg($name) . '</span>';
-    }
-
     public static function imageUrl($filename)
     {
         if (Str::endsWith($filename, '.svg')) {
