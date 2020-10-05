@@ -3,6 +3,22 @@
 .slick-slider {
   visibility: hidden;
 
+  &.equal {
+    .slick-track {
+      display: flex;
+
+      .slick-slide {
+        display: flex;
+        height: auto;
+      }
+    }
+  }
+
+  &.equal.centered .slick-slide {
+    align-items: center;
+    justify-content: center;
+  }
+
   .slick-slide,
   .slick-slide a:focus {
     outline: none !important;
