@@ -28,6 +28,14 @@ add_action('tgmpa_register', function () {
             'slug' => 'contact-form-7',
             'required' => true,
         ],
+        [
+            'name' => 'Safe SVG',
+            'slug' => 'safe-svg',
+        ],
+        [
+            'name' => 'Duplicate Post',
+            'slug' => 'duplicate-post',
+        ],
     ];
 
     $config = [
