@@ -17,5 +17,6 @@ if (function_exists('acf_add_options_page')) {
         'page_title' => 'Footer Settings',
         'menu_title' => 'Footer',
         'parent_slug' => $parent['menu_slug'],
+        'post_id' => 'footer',
     ]);
 }
