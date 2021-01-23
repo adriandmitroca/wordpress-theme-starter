@@ -21,7 +21,7 @@ Make sure all dependencies have been installed before moving on:
 
 * [WordPress](https://wordpress.org/) >= 5.0
 * [PHP](https://secure.php.net/manual/en/install.php) >= 7.3
-* [Node.js](http://nodejs.org/) >= 8.0.0
+* [Node.js](http://nodejs.org/) >= 12.0.0
 * [Yarn](https://yarnpkg.com/en/docs/install)
 
 
