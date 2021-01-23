@@ -11,7 +11,7 @@ mix
   .options({ processCssUrls: false })
   .browserSync({
     proxy: DEV_DOMAIN,
-    files: ["dist/**/*", "**/*.php"]
+    files: ["dist/**/*", "**/*.php"],
   })
   .webpackConfig({
     module: {
@@ -23,19 +23,19 @@ mix
           exclude: /node_modules/,
           options: {
             cache: true,
-            configFile: ".eslintrc"
-          }
-        }
-      ]
+            configFile: ".eslintrc",
+          },
+        },
+      ],
     },
     output: {
       publicPath: `/wp-content/themes/${THEME_DIRECTORY}/`,
-      chunkFilename: "dist/js/[name].[chunkhash].js"
+      chunkFilename: "dist/js/[name].[chunkhash].js",
     },
     plugins: [
-      new StyleLintPlugin({ lintDirtyModulesOnly: !mix.inProduction() })
+      new StyleLintPlugin({ lintDirtyModulesOnly: !mix.inProduction() }),
     ],
     externals: {
-      jquery: "jQuery"
-    }
+      jquery: "jQuery",
+    },
   })
