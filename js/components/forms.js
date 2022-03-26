@@ -18,9 +18,8 @@ export default class {
       })
 
       this.$forms.find("select").on("change", (event) => {
-        const { value } = event.target.options[
-          event.target.options.selectedIndex
-        ]
+        const { value } =
+          event.target.options[event.target.options.selectedIndex]
         $(event.target).toggleClass("filled", value.length)
       })
     })

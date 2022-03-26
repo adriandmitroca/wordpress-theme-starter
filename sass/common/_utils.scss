@@ -15,12 +15,12 @@ button {
       border-top-color: transparent;
       border-right-color: transparent;
       border-radius: 290486px;
-      animation: spinAround 500ms infinite linear;
+      animation: spin-around 500ms infinite linear;
     }
   }
 }
 
-@keyframes spinAround {
+@keyframes spin-around {
   from {
     transform: rotate(0deg);
   }
