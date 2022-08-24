@@ -1,0 +1,38 @@
+name: Deployment [live]
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          cache: 'yarn'
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.1
+          extensions: mbstring, bcmath
+      - id: composercache
+        run: echo "::set-output name=dir::$(composer config cache-files-dir)"
+      - uses: actions/cache@v2
+        with:
+          path: ${{ steps.composercache.outputs.dir }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: ${{ runner.os }}-composer-
+      - run: yarn
+      - run: yarn prod
+      - run: composer install
+#      - uses: easingthemes/ssh-deploy@v2.2.11
+#        env:
+#          SSH_PRIVATE_KEY: ${{ secrets.SSH_KEY_PROD }}
+#          ARGS: "-rltgoDzvO --delete --exclude /node_modules/ --exclude /.git/"
+#          REMOTE_HOST: "127.0.0.1"
+#          REMOTE_PORT: "2020"
+#          REMOTE_USER: "root"
+#          SOURCE: "/"
+#          TARGET: "~/httpdocs/wp-content/themes/PROJECTNAME"
+
