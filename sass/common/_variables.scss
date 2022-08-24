@@ -1,10 +1,7 @@
 $image-path: "../../static/images";
 $vector-path: "../../static/vectors";
 $font-path: "../../static/fonts";
-$color-primary: #007bff;
-$theme-colors: (
-  primary: $color-primary,
-);
-$input-focus-border-color: $color-primary;
-$input-focus-box-shadow: 0 0 1rem rgba($color-primary, 0.2);
+$primary: #007bff;
+$input-focus-border-color: $primary;
+$input-focus-box-shadow: 0 0 1rem rgba($primary, 0.2);
 $enable-responsive-font-sizes: true;

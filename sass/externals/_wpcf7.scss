@@ -6,7 +6,7 @@
   }
 
   .wpcf7-response-output {
-    margin: $form-group-margin-bottom 0 0;
+    margin: 0;
     text-align: center;
   }
 
@@ -35,7 +35,7 @@
   }
 
   .wpcf7-select {
-    @extend .custom-select;
+    @extend .form-select;
 
     color: $input-placeholder-color;
 
@@ -49,16 +49,16 @@
       margin: 0;
 
       label {
-        @extend .custom-control, .custom-checkbox;
+        @extend .form-check;
 
         cursor: pointer;
 
         input[type="checkbox"] {
-          @extend .custom-control-input;
+          @extend .form-check-input;
         }
 
         span {
-          @extend .custom-control-label;
+          @extend .form-check-label;
         }
       }
     }
@@ -70,16 +70,16 @@
       margin: 0;
 
       label {
-        @extend .custom-control, .custom-checkbox, .custom-control-inline;
+        @extend .form-check, .form-check-inline;
 
         cursor: pointer;
 
         input {
-          @extend .custom-control-input;
+          @extend .form-check-input;
         }
 
         span {
-          @extend .custom-control-label;
+          @extend .form-check-label;
         }
       }
     }
@@ -91,16 +91,16 @@
       margin: 0;
 
       label {
-        @extend .custom-control, .custom-radio, .custom-control-inline;
+        @extend .form-check, .form-check-inline;
 
         cursor: pointer;
 
         input {
-          @extend .custom-control-input;
+          @extend .form-check-input;
         }
 
         span {
-          @extend .custom-control-label;
+          @extend .form-check-label;
         }
       }
     }
@@ -108,7 +108,7 @@
 
   .wpcf7-form-control-wrap {
     display: block;
-    margin-bottom: $form-group-margin-bottom;
+    margin-bottom: 0;
   }
 
   input[type="submit"] {
