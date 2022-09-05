@@ -30,7 +30,7 @@
     "laravel-mix-polyfill": "3.0.1",
     "postcss": "8.4.16",
     "prettier": "2.7.1",
-    "sass": "1.54.5",
+    "sass": "1.54.8",
     "sass-loader": "13.0.2",
     "stylelint": "14.11.0",
     "stylelint-config-prettier": "9.0.3",
