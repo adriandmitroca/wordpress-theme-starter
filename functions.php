@@ -8,6 +8,8 @@
  * across separate files in the `/src` directory.
  */
 
+require_once "vendor/autoload.php";
+
 spl_autoload_register(function ($class) {
     $class = str_replace(['Rcore\\', '\\'], ['', '/'], $class);
     $CLASSES_DIR = __DIR__ . DIRECTORY_SEPARATOR . 'src' . DIRECTORY_SEPARATOR;
@@ -31,3 +33,8 @@ require_once 'src/option-pages.php';
 require_once 'src/filters.php';
 require_once 'src/assets.php';
 require_once 'src/navs.php';
+
+// Fields
+require_once 'src/fields/fields-modular.php';
+require_once 'src/fields/fields-header.php';
+require_once 'src/fields/fields-footer.php';
