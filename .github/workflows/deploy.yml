@@ -26,13 +26,13 @@ jobs:
       - run: yarn
       - run: yarn prod
       - run: composer install
-#      - uses: easingthemes/ssh-deploy@v2.2.11
-#        env:
-#          SSH_PRIVATE_KEY: ${{ secrets.SSH_KEY_PROD }}
-#          ARGS: "-rltgoDzvO --delete --exclude /node_modules/ --exclude /.git/"
-#          REMOTE_HOST: "127.0.0.1"
-#          REMOTE_PORT: "2020"
-#          REMOTE_USER: "root"
-#          SOURCE: "/"
-#          TARGET: "~/httpdocs/wp-content/themes/PROJECTNAME"
-
+      - uses: easingthemes/ssh-deploy@v4.0.5
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_KEY_PROD }}
+          ARGS: "-rltgoDzvO --delete"
+          REMOTE_HOST: "127.0.0.1"
+          REMOTE_PORT: "2020"
+          REMOTE_USER: "root"
+          SOURCE: "/"
+          EXCLUDE: "/node_modules/, /.git/"
+          TARGET: "~/httpdocs/wp-content/themes/PROJECTNAME"
