@@ -4,5 +4,11 @@
     "group:allNonMajor",
     "schedule:monthly"
   ],
-  "assignees": ["adriandmitroca"]
+  "assignees": ["adriandmitroca"],
+  "packageRules": [
+      {
+          "extends": "packages:linters",
+          "groupName": "linters"
+      }
+  ]
 }
