@@ -1,14 +1,12 @@
 {
-  "extends": [
-    "config:base",
-    "group:allNonMajor",
-    "schedule:monthly"
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:base", "group:allNonMajor", "schedule:monthly"],
+  "packageRules": [
+    {
+      "extends": "packages:linters",
+      "groupName": "linters"
+    }
   ],
   "assignees": ["adriandmitroca"],
-  "packageRules": [
-      {
-          "extends": "packages:linters",
-          "groupName": "linters"
-      }
-  ]
+  "rangeStrategy": "pin"
 }
