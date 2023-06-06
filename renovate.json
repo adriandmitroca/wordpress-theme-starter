@@ -6,7 +6,5 @@
       "extends": "packages:linters",
       "groupName": "linters"
     }
-  ],
-  "assignees": ["adriandmitroca"],
-  "rangeStrategy": "pin"
+  ]
 }
