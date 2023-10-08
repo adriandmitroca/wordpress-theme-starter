@@ -4,7 +4,8 @@
   "packageRules": [
     {
       "extends": "packages:linters",
-      "groupName": "linters"
+      "groupName": "linters",
+      "matchUpdateTypes": ["major"]
     }
   ]
 }
