@@ -1,7 +1,7 @@
 body.admin-bar nav.navbar.fixed-top {
   top: 32px !important;
 
-  @media screen and (max-width: 782px) {
+  @media screen and (width <= 782px) {
     top: 0 !important;
 
     &:not(.scrolled) {
