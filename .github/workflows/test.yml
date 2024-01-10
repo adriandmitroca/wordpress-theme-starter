@@ -14,7 +14,7 @@ jobs:
           cache: 'yarn'
       - uses: shivammathur/setup-php@v2
         with:
-          php-version: 8.1
+          php-version: 8.3
           extensions: mbstring, bcmath
       - id: composercache
         run: echo "::set-output name=dir::$(composer config cache-files-dir)"
