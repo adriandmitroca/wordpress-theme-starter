@@ -10,7 +10,7 @@ const THEME_DIRECTORY = "projectName"
 mix
   .js("js/app.js", "dist/js")
   .sass("sass/app.scss", "dist/css")
-  .sourceMaps(mix.inProduction(), "source-map")
+  .sourceMaps(false, "source-map")
   .options({ processCssUrls: false })
   .browserSync({
     proxy: DEV_DOMAIN,
