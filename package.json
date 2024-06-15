@@ -16,7 +16,7 @@
     "precommit": "npm run lint"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "7.24.6",
+    "@babel/eslint-parser": "7.24.7",
     "@babel/plugin-syntax-dynamic-import": "7.8.3",
     "browser-sync": "3.0.2",
     "browser-sync-webpack-plugin": "2.3.0",
@@ -29,15 +29,15 @@
     "eslint-webpack-plugin": "4.2.0",
     "laravel-mix-polyfill": "3.0.1",
     "postcss": "8.4.38",
-    "prettier": "3.2.5",
-    "sass": "1.77.4",
+    "prettier": "3.3.2",
+    "sass": "1.77.5",
     "sass-loader": "14.2.1",
     "stylelint": "16.6.1",
     "stylelint-config-recess-order": "4.6.0",
     "stylelint-config-recommended-vue": "1.5.0",
     "stylelint-config-standard-scss": "13.1.0",
     "stylelint-prettier": "5.0.0",
-    "stylelint-scss": "6.3.0",
+    "stylelint-scss": "6.3.1",
     "stylelint-webpack-plugin": "5.0.1"
   },
   "dependencies": {
