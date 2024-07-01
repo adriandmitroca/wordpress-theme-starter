@@ -19,7 +19,7 @@ mix
   .polyfill({
     enabled: true,
     useBuiltIns: "usage",
-    targets: "> 0.25%, not dead, ie 11",
+    targets: "> 0.25%, not dead",
   })
   .webpackConfig({
     output: {
