@@ -11,7 +11,7 @@
     "lint:scss": "stylelint \"sass/**/*.scss\" --fix",
     "lint:js": "eslint js --ext .js,.vue --fix --report-unused-disable-directives",
     "lint:php": "composer lint",
-    "lint": "npm run lint:js; npm run lint:scss",
+    "lint": "npm run lint:js && npm run lint:scss",
     "test": "npm run lint",
     "precommit": "npm run lint"
   },
