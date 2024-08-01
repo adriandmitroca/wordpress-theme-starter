@@ -28,7 +28,7 @@ jobs:
       - run: yarn
       - run: yarn prod
       - run: composer install
-      - uses: easingthemes/ssh-deploy@v5.0.3
+      - uses: easingthemes/ssh-deploy@v5.1.1
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_KEY_PROD }}
           ARGS: "-rlgoDzvc -i --delete"
